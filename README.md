@@ -1,2 +1,2 @@
-# vanierOS
+# Vanier OS
 Live system
