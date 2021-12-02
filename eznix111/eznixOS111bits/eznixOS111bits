@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# eznixOS111bits -- Revision: 111r1 -- by eznix (https://sourceforge.net/projects/eznixos/)
+# (GNU/General Public License version 3.0)
+
+#--------------------------------
+# Set variables
+#--------------------------------
+
+# Set date format
+UDATE=$(date +%Y%m%d)
+
+# Set working directory
+WKDIR="$(pwd)"
+
+#--------------------------------
+# define functions
+#--------------------------------
+
+# Make project directory structure
+ezblddir () {
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/usr/local/bin
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/doc/eznixOS111
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/DEBIAN
+}
+
+# Copy files into project directories
+ezcpfiles () {
+cp -r $WKDIR/eznix111/bootloaders $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/icons $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/launchers $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/livebuild $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/scripts $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/sources $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/eznixOS111bits $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/doc $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/splash $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp $WKDIR/eznix111/doc/* $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/doc/eznixOS111/
+cp $WKDIR/eznix111/eznixOS111bits/postinst $WKDIR/eznixOS111bits_$UDATE-1_all/DEBIAN/
+cp $WKDIR/eznix111/bldeznix111 $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp $WKDIR/eznix111/scripts/* $WKDIR/eznixOS111bits_$UDATE-1_all/usr/local/bin/
+}
+
+# Create control file
+crtcontronl () {
+cat <<EOT >> $WKDIR/eznixOS111bits_$UDATE-1_all/DEBIAN/control
+Package: eznixOS111bits
+Version: $UDATE-1
+Section: base
+Essential: no
+Priority: optional
+Architecture: all
+Depends: live-build, curl, wget, apt-transport-https, dirmngr
+Maintainer: eznix <https://sourceforge.net/projects/eznixos/>
+Description: eznixOS111bits
+ Updated eznixOS111 documentation and scripts
+EOT
+}
+
+#----------------------------
+# main program
+#----------------------------
+
+ezblddir
+ezcpfiles
+crtcontronl
+# Build deb file
+dpkg-deb --build eznixOS111bits_$UDATE-1_all && md5sum eznixOS111bits_$UDATE-1_all.deb > eznixOS111bits_$UDATE-1_all.md5
+
+# Disclaimer:
+# THIS SOFTWARE IS PROVIDED BY EZNIX “AS IS” AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL EZNIX BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.

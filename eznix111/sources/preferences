@@ -1,0 +1,19 @@
+
+Package: *
+Pin: release o=Debian, n=bullseye
+Pin-Priority: 990
+
+
+Package: *
+Pin: release o=Debian, n=bullseye-updates
+Pin-Priority: 990
+
+
+Package: *
+Pin: release o=Debian Backports, n=bullseye-backports
+Pin-Priority: 900
+
+
+Package: *
+Pin: release o=Debian, n=bullseye
+Pin-Priority: 700

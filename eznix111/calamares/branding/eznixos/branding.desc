@@ -1,0 +1,27 @@
+---
+componentName:   eznixos
+welcomeStyleCalamares: true
+
+strings:
+    productName:         eznixOS
+    shortProductName:    eznixOS
+    version:             111
+    shortVersion:        111
+    versionedName:       eznixOS
+    shortVersionedName:  eznixOS
+    bootloaderEntryName: Debian
+    productUrl:          
+    supportUrl:          
+    releaseNotesUrl:     
+
+images:
+    productLogo:         "eznixos-logo.png"
+    productIcon:         "eznixos-logo.png"
+    productWelcome:      "welcome.png"
+
+slideshow:               "show.qml"
+
+style:
+   sidebarBackground:    "#2c3133"
+   sidebarText:          "#FFFFFF"
+   sidebarTextSelect:    "#4d7079"
