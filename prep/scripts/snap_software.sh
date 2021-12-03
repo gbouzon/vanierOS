@@ -30,4 +30,12 @@ snap install netbeans --classic
 snap install blender --classic
 
 #at the end: add software installation for xampp + intel firmware (fail at build, check later)
-#unpack snap??????????????????????
+#unpack snap??????????????????????:::
+
+#start snap process: -> will be converted to another script later (maybe configured with systemd)
+
+#sudo systemctl enable --now snapd.socket
+#sudo systemctl is-active snapd.socket
+#sudo systemctl is-enabled snapd.socket
+#since snaps are already installed make a separate script, add a icon to each one and add it to desktop (make sure they're chmod 755)
+#command: snap run <snap name> (e.g. snap run greenfoot)
