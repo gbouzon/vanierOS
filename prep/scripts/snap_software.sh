@@ -1,25 +1,33 @@
 #!/bin/bash
 
-#installing snapd software
+#installing snapd software -> unpack snap packages (??)
+#run script as sudo
 
+#install snapd first, just in case not unpacked at build time
 sudo apt-get install snapd
 
-snap install --beta mysql
+#install mysql packages
+snap install mysql --beta
 
+#greenfoot packages
 snap install greenfoot
 
-snap install code
+#vsc packages
+snap install code --classic
 
 snap install spotify
 
-snap install eclipse
+#eclipse packages
+snap install eclipse --classic
 
-snap install android-studio
+#android-studio packages
+snap install android-studio --classic
 
-snap install netbeans
+#apache netbeans packages
+snap install netbeans --classic
 
-snap install firefox
+#blender packages
+snap install blender --classic
 
-snap install blender
-
-snap install default-jdk
+#at the end: add software installation for xampp + intel firmware (fail at build, check later)
+#unpack snap??????????????????????

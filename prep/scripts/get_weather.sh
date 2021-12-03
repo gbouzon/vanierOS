@@ -1,6 +1,6 @@
 #!/bin/bash
 #install curl first 
-#then use functionalities
+#then use functionalities -> weather report
 
 sudo apt-get install curl
 
