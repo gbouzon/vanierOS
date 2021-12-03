@@ -1,0 +1,86 @@
+Simple DEB packaging Howto
+
+
+--------------------------------------
+
+1. Set the date variable
+
+UDATE=$(date +%Y%m%d)
+
+2. Set working directory
+
+WKDIR="$(pwd)"
+
+--------------------------------------
+
+3. Decide on the name of your package. Standard debian notation is all lowercase in the following format
+
+<project>_<major version>.<minor version>-<package revision>:
+
+Code:
+eznixOS111bits_$UDATE-1
+
+--------------------------------------
+
+4. Create a directory in which to make your package. The name should be the same as the package name.
+
+Code:
+mkdir eznixOS111bits_$UDATE-1
+
+--------------------------------------
+
+5. Put the files of your program where they would be installed to on a system. The packaging directory is the root of the files system.
+
+Code:
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/usr/local/bin
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/doc/eznixOS111
+mkdir -p $WKDIR/eznixOS111bits_$UDATE-1_all/DEBIAN
+
+cp -r $WKDIR/eznix111/bootloaders $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/icons $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/launchers $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/livebuild $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/scripts $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/sources $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/eznixOS111bits $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/doc $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp -r $WKDIR/eznix111/splash $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp $WKDIR/eznix111/doc/* $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/doc/eznixOS111/
+cp $WKDIR/eznix111/eznixOS111bits/postinst $WKDIR/eznixOS111bits_$UDATE-1_all/DEBIAN/
+cp $WKDIR/eznix111/bldeznix111 $WKDIR/eznixOS111bits_$UDATE-1_all/usr/share/eznixOS111/eznix111/
+cp $WKDIR/eznix111/scripts/* $WKDIR/eznixOS111bits_$UDATE-1_all/usr/local/bin/
+
+--------------------------------------
+
+6. Create a special metadata file with which the package manager will
+install your program...
+
+Code:
+mkdir $WKDIR/eznixOS111bits_$UDATE-1/DEBIAN
+mousepad $WKDIR/eznixOS111bits_$UDATE-1/DEBIAN/control
+
+Code:
+Package: eznixOS111bits
+Version: $UDATE-1
+Section: base
+Essential: no
+Priority: optional
+Architecture: all
+Depends: live-build, curl, wget, apt-transport-https, dirmngr
+Maintainer: eznix <https://sourceforge.net/projects/eznixos/>
+Description: eznixOS111bits
+ Updated eznixOS111 documentation and scripts
+
+--------------------------------------
+
+7. Make the package:
+
+Code:
+dpkg-deb --build eznixOS111bits_$UDATE-1_all
+md5sum eznixOS111bits_$UDATE-1_all.deb > eznixOS111bits_$UDATE-1_all.md5
+
+
+# eznixOS111bits.txt -- Revision: 111r1 -- by eznix (https://sourceforge.net/projects/eznixos/)
+# (GNU/General Public License version 3.0)
