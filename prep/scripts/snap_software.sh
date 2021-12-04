@@ -29,6 +29,8 @@ snap install netbeans --classic
 #blender packages
 snap install blender --classic
 
+snap install discord
+
 #at the end: add software installation for xampp + intel firmware (fail at build, check later)
 #unpack snap??????????????????????:::
 
