@@ -13,3 +13,14 @@ col=0
 row=2
 col=0
 
+[/usr/local/bin/greenfoot.sh]
+row=3
+col=0
+
+[/usr/local/bin/spotify.sh]
+row=3
+col=1
+
+[/usr/local/bin/discord.sh]
+row=3
+col=2
