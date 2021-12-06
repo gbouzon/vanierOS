@@ -38,7 +38,7 @@ Step 3: Set up the live-build config
 
 # Run command below to configure live build:
 
-lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bullseye --archive-areas "main contrib non-free" --updates true --security true --cache true --apt-recommends true --debian-installer live --debian-installer-gui true --win32-loader false --iso-application vanierOS --iso-preparer eznix-https://sourceforge.net/projects/eznixos/ --iso-publisher eznix-https://sourceforge.net/projects/eznixos/ --iso-volume vanierOS
+lb config --binary-images iso-hybrid --mode debian --architectures amd64 --linux-flavours amd64 --distribution bullseye --archive-areas "main contrib non-free" --updates true --security true --cache true --apt-recommends true --debian-installer live --debian-installer-gui true --win32-loader false --iso-application vanierOS --iso-preparer vanierfloss-https://github.com/gbouzon/vanierOS --iso-publisher vanierfloss-https://github.com/gbouzon/vanierOS --iso-volume vanierOS
 
 # If the Debian Installer does not work, try inserting 	--debian-installer-distribution daily into the lb config options
 
