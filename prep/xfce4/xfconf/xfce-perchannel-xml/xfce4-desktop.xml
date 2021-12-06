@@ -8,7 +8,7 @@
         <property name="color1" type="empty"/>
         <property name="color2" type="empty"/>
         <property name="color-style" type="empty"/>
-        <property name="image-path" type="string" value="/prep/backgrounds/vanieros.png"/>
+        <property name="image-path" type="string" value="/usr/share/backgrounds/vanieros.png"/>
         <property name="image-show" type="empty"/>
         <property name="last-image" type="empty"/>
         <property name="last-single-image" type="empty"/>
@@ -28,7 +28,7 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/prep/backgrounds/vanieros.png"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/vanieros.png"/>
           <property name="backdrop-cycle-enable" type="bool" value="false"/>
         </property>
         <property name="workspace1" type="empty">
@@ -56,17 +56,17 @@
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/prep/backgrounds/vanieros.png"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/vanieros.png"/>
         </property>
         <property name="workspace2" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/prep/backgrounds/vanieros.png"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/vanieros.png"/>
         </property>
         <property name="workspace3" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="3"/>
-          <property name="last-image" type="string" value="/prep/backgrounds/vanieros.png"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/vanieros.png"/>
         </property>
       </property>
     </property>
