@@ -1,0 +1,102 @@
+	EZADMIN HOWTO
+
+This is a custom built script to perform various tasks on eznixOS. You can run the ezadmin script as root to perform its functions. SU to root in a terminal and issue the command: "ezadmin" to execute the script. Read the documentation for the ezadmin script BEFORE using it. The functions are serious and the changes are not easy to reverse once done.
+
+
+	EZ Admin Menu:
+
+#################################################
+#                                               #
+# -------------------                           #
+#  EZ Admin Menu:                               #
+# -------------------                           #
+#                                               #
+#  (a) Add Myself to Sudo Group                 #
+#       (Logout & Login to take effect)         #
+#  (b) Optimize Sources	& Update Repos          #
+#  (c) Rebuild Icon Cache Files                 #
+#       (Logout & Login to take effect)         #
+#  (d) Install or upgrade Firefox Latest        #
+#  (e) Install newest kernel from backports     #
+#       (Reboot Required)                       #
+#                                               #
+#  (x) Exit                                     #
+#                                               #
+# Please enter your choice:                     #
+#                                               #
+#################################################
+
+
+Select a|A to add yourself to the sudo group, allowing the use of 'sudo' to gain administrative privileges. Logout and Login is required to take effect.
+
+Select b|B to optimize your repositories to Debian's DNS based redirection system for automatically picking closer mirrors. The Stretch Backports repositories are added as well. Use can use Synaptic or your favorite text editor to customize the repositories if you wish.
+
+Select c|C to rebuild the default icon cache files and lower memory usage.
+
+Select d|D to install and/or upgrade the latest Firefox Latest.
+
+Select e|E to install the newest kernel from backports.
+
+Select x|X to exit the menu and return to the command prompt. Reboot your system after performing any of the steps and in-between multiple steps just to be safe.
+
+
+-------------------------------------------------------------------
+
+	Functions
+
+-------------------------------------------------------------------
+
+# Add first user to sudo group
+
+  read -p "Type you user name, be exact and press Enter: " ANS
+  usermod -aG sudo $ANS
+
+-------------------------------------------------------------------
+
+# Optimize mirrors and add contrib and non-free to sources.list
+
+  cp /etc/apt/sources.list /etc/apt/sources.list.b4optimize
+  cp /usr/share/eznixOS111/eznix111/sources/sources.bullseye /etc/apt/sources.list
+  cp /usr/share/eznixOS111/eznix111/sources/preferences /etc/apt/preferences
+  cp /usr/share/eznixOS111/eznix111/sources/apt.conf /etc/apt/apt.conf
+  apt-get -y update
+
+-------------------------------------------------------------------
+
+# Rebuild Default Icon Cache Files
+
+  gtk-update-icon-cache -f /usr/share/icons/breeze/
+  gtk-update-icon-cache -f /usr/share/icons/breeze-dark/
+  gtk-update-icon-cache -f /usr/share/icons/ePapirus/
+  gtk-update-icon-cache -f /usr/share/icons/gnome/
+  gtk-update-icon-cache -f /usr/share/icons/Papirus/
+  gtk-update-icon-cache -f /usr/share/icons/Papirus-Dark/
+  gtk-update-icon-cache -f /usr/share/icons/Papirus-Light/
+  gtk-update-icon-cache -f /usr/share/icons/Tango/
+
+-------------------------------------------------------------------
+
+# Install and/or upgrade the latest Firefox Latest
+
+  [[ -d /opt/FFDL ]] && rm -r /opt/FFDL
+  mkdir /opt/FFDL
+  [[ -d /opt/moz ]] && rm -r /opt/moz
+  mkdir /opt/moz
+  wget -O /opt/FFDL/FirefoxSetup.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US"
+  tar xjf /opt/FFDL/FirefoxSetup.tar.bz2 -C /opt/moz/
+  cp /usr/share/eznixOS111/eznix111/launchers/Firefox-Latest.desktop /usr/share/applications/Firefox-Latest.desktop
+  rm -r /opt/FFDL
+
+------------------------------------------------------------------
+
+# Install the newest kernel from backports
+
+  apt-get -y install -t bullseye-backports linux-image-amd64 linux-headers-amd64
+  apt-get -y install -t bullseye-backports firmware-linux firmware-linux-nonfree firmware-misc-nonfree
+  apt-get -y install -t bullseye-backports firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-intelwimax firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211
+
+------------------------------------------------------------------
+
+
+# ezadmin-howto.txt -- Revision: 111r1 -- by eznix (https://sourceforge.net/projects/eznixos/)
+# (GNU/General Public License version 3.0)
