@@ -103,6 +103,17 @@ cp $WKDIR/prep/icons/* $WKDIR/vanierOS/config/includes.chroot/usr/share/icons/de
 cp $WKDIR/prep/launchers/ezadmin.desktop $WKDIR/vanierOS/config/includes.chroot/usr/share/applications/
 ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/
 
+TO ADD STUFF TO DESKTOP:
+
+ln -s <source folder> $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/
+
+1. add script folder to usr/share:
+cp -r $WKDIR/prep/scripts $WKDIR/vanierOS/config/includes.chroot/usr/share/
+then add to background:
+ln -s /usr/share/scripts $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/
+
+problem to be fixed: scripts are root owned so they cannot be executed in the live system
+-> make executable and readable by all, only write permission to sudo group
 -----------------------------------
 
 # Run command below IF you wish to include deb packages from misc64 folder:
