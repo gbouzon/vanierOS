@@ -20,7 +20,9 @@ Step 1: Assign the variable WKDIR the output of pwd
 
 # Run command below to set the working directory:
 
-WKDIR="$(pwd)"
+WKDIR="$(pwd)" -> echo $WKDIR should result in /root
+
+create prep and vanierOS (build) folders in /root directory for the rest of these commands to work
 
 ----------------------------------
 
