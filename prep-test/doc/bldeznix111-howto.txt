@@ -64,14 +64,6 @@ echo "grub-common grub2-common grub-pc-bin efibootmgr grub-efi-amd64 grub-efi-am
 
 echo "b43-fwcutter firmware-b43-installer firmware-b43legacy-installer" > $WKDIR/vanierOS/config/package-lists/wifidrivers.list.chroot
 
-# Run commands below to include the Calamares Installer:
-
-echo "calamares calamares-settings-debian" > $WKDIR/vanierOS/config/package-lists/calamares.list.chroot
-mkdir -p $WKDIR/vanierOS/config/includes.chroot/etc/calamares/branding
-cp $WKDIR/prep/calamares/settings.conf $WKDIR/vanierOS/config/includes.chroot/etc/calamares/settings.conf
-cp $WKDIR/prep/calamares/usr/share/applications/install-debian.desktop $WKDIR/vanierOS/config/includes.chroot/usr/share/applications/install-debian.desktop
-cp -r $WKDIR/prep/calamares/branding/eznixos $WKDIR/vanierOS/config/includes.chroot/etc/calamares/branding/eznixos
-
 ----------------------------------
 
 Step 5: Make folders in the chroot 
@@ -85,8 +77,10 @@ mkdir -p $WKDIR/vanierOS/config/includes.chroot/usr/share/icons/default
 mkdir -p $WKDIR/vanierOS/config/includes.chroot/usr/local/bin
 mkdir -p $WKDIR/vanierOS/config/includes.chroot/usr/share/applications
 mkdir -p $WKDIR/vanierOS/config/includes.chroot/usr/share/doc/vanierOS
-mkdir -p $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop
+mkdir -p $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop -> skel "skeleton" refers to user folders
+mkdir -p $WKDIR/vanierOS/config/includes.chroot/etc/live/Desktop -> live here refers to when user chooses the live system option instead of graphical installer
 
+--test 1: build with same folders under skel as live and see the effects on live system user
 -----------------------------------
 
 Step 6: Copy files into the chroot and live-build config
@@ -96,16 +90,20 @@ Step 6: Copy files into the chroot and live-build config
 cp -r $WKDIR/prep $WKDIR/vanierOS/config/includes.chroot/usr/share/vanierOS/
 cp -r $WKDIR/prep/bootloaders $WKDIR/vanierOS/config/
 cp -r $WKDIR/prep/xfce4 $WKDIR/vanierOS/config/includes.chroot/etc/skel/.config/
+cp -r $WKDIR/prep/xfce4 $WKDIR/vanierOS/config/includes.chroot/etc/live/.config/ -> added for test 1
 cp $WKDIR/prep/scripts/* $WKDIR/vanierOS/config/includes.chroot/usr/local/bin/
 cp $WKDIR/prep/doc/* $WKDIR/vanierOS/config/includes.chroot/usr/share/doc/vanierOS/
 cp $WKDIR/prep/backgrounds/* $WKDIR/vanierOS/config/includes.chroot/usr/share/backgrounds/
 cp $WKDIR/prep/icons/* $WKDIR/vanierOS/config/includes.chroot/usr/share/icons/default/
 cp $WKDIR/prep/launchers/ezadmin.desktop $WKDIR/vanierOS/config/includes.chroot/usr/share/applications/
 ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/
+ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/live/Desktop/ -> added for test 1
+
+observation: push the same user files to etc/live folder so live system has same configs as installer user
 
 TO ADD STUFF TO DESKTOP:
 
-ln -s <source folder> $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/
+ln -s <source folder> $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/ -> again, this is for the skeleton NOT live 
 
 1. add script folder to usr/share:
 cp -r $WKDIR/prep/scripts $WKDIR/vanierOS/config/includes.chroot/usr/share/
