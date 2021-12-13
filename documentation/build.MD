@@ -288,6 +288,6 @@ This project is licensed under the GNU/General Public License version 3.0
 
 The ISOs we have built were uploaded to a Google Drive folder and can be downloaded and tested/used by anyone. <br>
 Please check our install.md for information on how to do the installation process for the images (based on our latest -> build 7) <br>
-Our images are all named the same, except for a number at the end which defines the version (the latest is the 7th version).
+Our images are all named the same, except for a number at the end which defines the version (the latest is the 6th version).
 
 Link to Google Drive folder containing our ISOs: [VANIER OS TESTS](https://drive.google.com/drive/folders/1vn8E_Y-FxO9s4X-_mcH4Xkb1Z5cetZEE?usp=sharing)
