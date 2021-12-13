@@ -102,6 +102,7 @@ ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/live/De
 observation: push the same user files to etc/live folder so live system has same configs as installer user
 
 TO ADD STUFF TO DESKTOP:
+added plank.desktop to launchers folder
 
 ln -s <source folder> $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/ -> again, this is for the skeleton NOT live 
 
