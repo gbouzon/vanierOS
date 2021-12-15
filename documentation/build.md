@@ -85,8 +85,7 @@ Inside each of the subfolders within /bootloaders is a file named: splash.svg or
 
 -------------------------------------------------------
 
-
-### prepare-howto.txt -- Revision: 111r1 -- by eznix (https://sourceforge.net/projects/eznixos/) -> (GNU/General Public License version 3.0)
+### prepare-howto.txt -- [Machine Preparation by Eznix](https://sourceforge.net/projects/eznixos/) -> (GNU/General Public License version 3.0)
 
 ## 2. Live Build - AMD64 Architectire
 -------------------------------------------------------
@@ -218,19 +217,19 @@ Run commands below to create the needed folders in the build folder (vanierOS in
 
 Run the following commands to copy build files into the live system:
 
-<code>cp -r $WKDIR/prep $WKDIR/vanierOS/config/includes.chroot/usr/share/vanierOS/ </code> <br>
-<code>cp -r $WKDIR/prep/bootloaders $WKDIR/vanierOS/config/ </code> <br>
-<code>cp -r $WKDIR/prep/xfce4 $WKDIR/vanierOS/config/includes.chroot/etc/skel/.config/ </code> <br>
-<code>cp -r $WKDIR/prep/xfce4 $WKDIR/vanierOS/config/includes.chroot/etc/live/.config/ </code> <br>
-<code>cp $WKDIR/prep/scripts/* $WKDIR/vanierOS/config/includes.chroot/usr/local/bin/ </code> <br>
-<code>cp $WKDIR/prep/doc/* $WKDIR/vanierOS/config/includes.chroot/usr/share/doc/vanierOS/ </code> <br>
-<code>cp $WKDIR/prep/backgrounds/* $WKDIR/vanierOS/config/includes.chroot/usr/share/backgrounds/ </code> <br>
-<code>cp $WKDIR/prep/icons/* $WKDIR/vanierOS/config/includes.chroot/usr/share/icons/default/ </code> <br>
-<code>cp $WKDIR/prep/launchers/ezadmin.desktop $WKDIR/vanierOS/config/includes.chroot/usr/share/applications/ </code> <br>
-<code>cp -r $WKDIR/prep/scripts2 $WKDIR/vanierOS/config/includes.chroot/usr/share/ </code> -> contains my snap packages scripts <br>
-<code>ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/ </code> <br>
+<code>cp -r $WKDIR/prep $WKDIR/vanierOS/config/includes.chroot/usr/share/vanierOS/</code> <br>
+<code>cp -r $WKDIR/prep/bootloaders $WKDIR/vanierOS/config/</code> <br>
+<code>cp -r $WKDIR/prep/xfce4 $WKDIR/vanierOS/config/includes.chroot/etc/skel/.config/</code> <br>
+<code>cp -r $WKDIR/prep/xfce4 $WKDIR/vanierOS/config/includes.chroot/etc/live/.config/</code> <br>
+<code>cp $WKDIR/prep/scripts/* $WKDIR/vanierOS/config/includes.chroot/usr/local/bin/</code> <br>
+<code>cp $WKDIR/prep/doc/* $WKDIR/vanierOS/config/includes.chroot/usr/share/doc/vanierOS/</code> <br>
+<code>cp $WKDIR/prep/backgrounds/* $WKDIR/vanierOS/config/includes.chroot/usr/share/backgrounds/</code> <br>
+<code>cp $WKDIR/prep/icons/* $WKDIR/vanierOS/config/includes.chroot/usr/share/icons/default/</code> <br>
+<code>cp $WKDIR/prep/launchers/ezadmin.desktop $WKDIR/vanierOS/config/includes.chroot/usr/share/applications/</code> <br>
+<code>cp -r $WKDIR/prep/scripts2 $WKDIR/vanierOS/config/includes.chroot/usr/share/</code> -> contains my snap packages scripts <br>
+<code>ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/</code> <br>
 <code>ln -s /usr/share/doc/vanierOS $WKDIR/vanierOS/config/includes.chroot/etc/live/Desktop/</code> <br>
-<code>ln -s /usr/share/scripts2 $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/ </code> -> contains my snap packages scripts <br>
+<code>ln -s /usr/share/scripts2 $WKDIR/vanierOS/config/includes.chroot/etc/skel/Desktop/</code> -> contains my snap packages scripts <br>
 <code>ln -s /usr/share/scripts2 $WKDIR/vanierOS/config/includes.chroot/etc/live/Desktop/</code> <br>
 
 The vanierOS folder should look like this: <br>
@@ -273,7 +272,7 @@ Once completed, the ISO will be located inside the build folder (vanierOS) <br>
 
 -------------------------------------------------------
 
-### bldeznix111-howto.txt -- Revision: 111r1 -- by eznix (https://sourceforge.net/projects/eznixos/) -> (GNU/General Public License version 3.0)
+### bldeznix111-howto.txt -- [Live Build by Eznix](https://sourceforge.net/projects/eznixos/) -> (GNU/General Public License version 3.0)
 
 ## Considerations: 
 
@@ -287,7 +286,7 @@ These instructions were written by Giuliana Bouzon, Jiahui Xia and Chilka Castro
 This project is licensed under the GNU/General Public License version 3.0
 
 The ISOs we have built were uploaded to a Google Drive folder and can be downloaded and tested/used by anyone. <br>
-Please check our install.md for information on how to do the installation process for the images (based on our latest -> build 7) <br>
-Our images are all named the same, except for a number at the end which defines the version (the latest is the 6th version).
+Please check our install.md for information on how to do the installation process for the system (based on our latest -> build 6) <br>
+Our ISOs are all named the same, except for a number at the end which defines the version (the latest is the 6th version).
 
 Link to Google Drive folder containing our ISOs: [VANIER OS TESTS](https://drive.google.com/drive/folders/1vn8E_Y-FxO9s4X-_mcH4Xkb1Z5cetZEE?usp=sharing)
